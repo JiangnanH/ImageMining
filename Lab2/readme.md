@@ -6,7 +6,7 @@ By Jiangnan HUANG & Thomas SU - 21/10/2020
 
 Instructor: Gianni Franchi, Antoine Manzanera
 
-[*Our notebook*](https://github.com/JiangnanH/ImageMining/blob/master/Copy_of_PyTorch_cifar10_tutorial_ROB313_2020.ipynb).
+Here is [*our notebook*](https://github.com/JiangnanH/ImageMining/blob/master/Lab2/Copy_of_PyTorch_cifar10_tutorial_ROB313_2020.ipynb).
 
 ### 1. Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
 
