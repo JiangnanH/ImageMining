@@ -84,7 +84,7 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 
 - Plot of losses:
 
-![loss](best.png)
+![loss](loss.png)
 
 - Normalized confusion matrix:
 
