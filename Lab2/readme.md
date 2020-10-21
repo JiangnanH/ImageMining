@@ -4,9 +4,15 @@
 
 By Jiangnan HUANG & Thomas SU - 21/10/2020
 
+<<<<<<< HEAD
 Instructor: Gianni Franchi, Antoine Manzanera
 
 ### 1. Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
+=======
+Our notebook [*Click here*](https://github.com/UniversalDependencies).
+ 
+### Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
+>>>>>>> 7003fd29a9cad490b17b0152c1670c0985297154
 
 
 
