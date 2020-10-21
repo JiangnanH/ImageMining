@@ -2,6 +2,8 @@
 
 By Jiangnan HUANG & Thomas SU - 21/10/2020
 
+Our notebook [*Click here*](https://github.com/UniversalDependencies).
+ 
 ### Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
 
 
