@@ -4,15 +4,9 @@
 
 By Jiangnan HUANG & Thomas SU - 21/10/2020
 
-<<<<<<< HEAD
 Instructor: Gianni Franchi, Antoine Manzanera
 
 ### 1. Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
-=======
-Our notebook [*Click here*](https://github.com/UniversalDependencies).
- 
-### Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
->>>>>>> 7003fd29a9cad490b17b0152c1670c0985297154
 
 
 
@@ -79,7 +73,7 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 
 **Result: (best performance)**
 
-- Accuracy:
+- Accuracies:
 
   Accuracy of the network on the 49000 train images: 95.12 %
 
@@ -100,4 +94,4 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 
 ### 3.2 Potential improvements
 
-- fix the overfitting problem.
+- fix the overfitting problem
