@@ -96,3 +96,4 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 ### 3.2 Potential improvements
 
 - fix the overfitting problem
+- play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
