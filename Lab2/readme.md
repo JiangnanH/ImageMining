@@ -22,15 +22,23 @@ We've tested CNN based model with different structures.
   we've tested several kinds of feature maps, which contains:  
   32 -> 48 -> 64 -> 128  
   32 -> 64 -> 128 -> 256  
-  32 -> 64 -> 128 -> 256 -> 512 
-  etc.
+  32 -> 64 -> 128 -> 256 -> 512  
+  etc.  
   
+  The best performance is given by:  
   32 -> 64 -> 128 -> 256
   
 - *number of convolutional layers:*  
-  we've testes 3, 6, 9, 12 convolution layers, and 6 convolution layers could obtain the best result.
+  we've tested 3, 6, 9, 12 convolution layers, and with 6 convolution layers the model could obtain the best performance.
 
 - *size of fully connected layers:*  
+  we've tested:  
+  256 -> 10
+  64 -> 10
+  256 -> 64 -> 10
+  etc.
+  
+  The best performance is given by:  
   256 -> 64 -> 10
 
 - *use dropout or not(also number of dropout layers):*  
