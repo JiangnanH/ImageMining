@@ -19,6 +19,12 @@ We've tested CNN based model with different structures.
   we've tested kernel size as 3x3, 5x5, 7x7 for each convolution layer, and 3x3 remains the best kernel size.
   
 - *number of feature maps:*  
+  we've tested several kinds of feature maps, which contains:  
+  32 -> 48 -> 64 -> 128  
+  32 -> 64 -> 128 -> 256  
+  32 -> 64 -> 128 -> 256 -> 512 
+  etc.
+  
   32 -> 64 -> 128 -> 256
   
 - *number of convolutional layers:*  
