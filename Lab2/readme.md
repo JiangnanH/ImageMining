@@ -41,7 +41,7 @@ We've tested CNN based model with different structures.
 - *number of epochs:*  
   this term is almost depended on the two hyper parameters above. As in the provided training function, the parameters of the network which obtained the best performance on validation set is kept as the final network's parameters, the learning rate should then be big enough to get the smallest loss on validation set.
 
-- *size of the training set/validation set:*
+- *size of the training set/validation set:*  
   Obviously if we take more data as the train set, our model could get better performance, this is because training a NN is a data-based task. But we still need to keep enough data for the validation set to help us tune the hyper parameters(we can not do it directly with the test set because then the model may 'overfit' on the test set, and the results may not be the real performance of the model.) In this work, our strategy is: Firstly using 40000 datas for train set and 10000 datas for validation set -> Tuning the hyper parameters to train a model which could get the best performance on validation set -> Fix the hyper parameters, then using 49000 datas for train set and 1000 datas for validation set to retrain the model -> test the model obtained on the test set. 
 
 ### 2. What is happening when the training and test losses start diverging?
