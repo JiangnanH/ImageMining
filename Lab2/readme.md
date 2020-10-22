@@ -32,6 +32,7 @@ We test CNN based model with different structures.
 ### 2. What is happening when the training and test losses start diverging?
 - When the training loss diverging: learning rate too big, the network can not converge.
 - When test(or validation) loss diverging: overfitting.
+Then we have to find the right learning rate so that these problems do not arise.
 
 ### 3. Top performing configurations:
 
