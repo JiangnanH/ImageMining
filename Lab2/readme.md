@@ -82,6 +82,9 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 
   Accuracy of the network on the 10000 test images: 82.94 %
 
+### 3.1 Interpretation on the losses plot
+
+We see that the more the epochs increases, the more the curves try to cross each other until the validation curve exceeds the training curve. It is probably around this moment that the overlearning appears.
 
 - Plot of losses:
 
@@ -90,8 +93,6 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 - Normalized confusion matrix:
 
 ![Confusion](confusion.png)
-
-### 3.1 Interpretation on the losses plot
 
 ### 3.2 Potential improvements
 
