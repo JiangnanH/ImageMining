@@ -15,7 +15,7 @@ Here is [*our notebook*](https://github.com/JiangnanH/ImageMining/blob/master/La
 
 We've tested CNN based model with different structures.
 
-- *kernel size:* 
+- *kernel size:*   
   we've tested kernel size as 3x3, 5x5, 7x7 for each convolution layer, and 3x3 remains the best kernel size.
 - *number of feature maps:* 32 -> 64 -> 128 -> 256
 - *number of convolutional layers:* 
