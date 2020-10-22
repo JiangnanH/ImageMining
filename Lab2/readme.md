@@ -84,19 +84,24 @@ Accuracies:
   
 The result is much better compared to the starting CNN 
 
-### 3.1 Interpretation on the losses plot
-
-We see that the more the epochs increases, the more the curves try to cross each other until the validation curve exceeds the training curve. It is probably around this moment that the overlearning appears.
+### 3.1 Interpretation on the losses plot and confusion matrix
 
 - Plot of losses:
 
 ![loss](loss.png)
 
+We see that the more the epochs increases, the more the curves try to cross each other until the validation curve exceeds the training curve. It is probably around this moment that the overlearning appears.
+
+
+
 - Normalized confusion matrix:
 
 ![Confusion](confusion.png)
+
+We can see that the biggest problem remains the photos of cats which are predicted like photos of dogs and vice versa.
 
 ### 3.2 Potential improvements
 
 - fix the overfitting problem
 - play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
+- When we detect an image of cats or dogs, these images are redirected to a more suitable CNN algorithm. This second algo will have as input only photos of dogs and cats, so it will have to differentiate between the two species.
