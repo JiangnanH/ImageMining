@@ -33,9 +33,9 @@ We've tested CNN based model with different structures.
 
 - *size of fully connected layers:*  
   we've tested:  
-  256 -> 10
-  64 -> 10
-  256 -> 64 -> 10
+  256 -> 10  
+  64 -> 10  
+  256 -> 64 -> 10  
   etc.
   
   The best performance is given by:  
