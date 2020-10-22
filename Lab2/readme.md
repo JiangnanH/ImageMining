@@ -42,24 +42,24 @@ We've tested CNN based model with different structures.
   256 -> 64 -> 10
 
 - *use dropout or not(also number of dropout layers):*  
-  add dropout layer could reduce the risk of overfitting and make the model more robust, but too much dropout may cause the model converge much slower. Finally we added 1 dropout layer in our model between 2 fully connected layers.
+  add dropout layer could reduce the risk of overfitting on the train set and make the model more robust, but too much dropout may cause the model converge much slower. After several experiments, finally we added 1 dropout layer in our model between 2 fully connected layers.
 
 **Hyper parameters:**
 
 - *batch size:*  
-  we test batch_size = 32, 64, 128, 256, 512. With small batch size (batch_size = 32), the algorithm converges quicker but the performance on the test set is not very good. With bigger batch size, the algorithm converges slower, and the best result is obtained with batch_size = 64.
+  we've tested batch_size = 32, 64, 128, 256, 512. With small batch size (batch_size = 32), the model converges quicker but the performance on the test set is not very good. With bigger batch size, the algorithm converges slower, and the best performance is obtained with batch_size = 64.
 
 - *learning rate:*  
-  we test learning rate = 0.0001, 0.001, 0.01. Small lr -> converge slowly, easily become overfitting; Big lr-> can not even converge, underfitting. The best lr tested is 0.001 for optimiser Adam, and 0.01 for SGD with momentum.
+  we've tested learning rate(lr) = 0.0001, 0.001, 0.01, 0.1. lr too small -> converge slowly, easily become overfitting on train set; lr to big-> can not even converge, underfitting. The best lr tested is 0.001 for optimiser Adam, and 0.01 for SGD with momentum.
 
 - *number of epochs:*  
-  this term is almost depended on the two hyper parameters above. As in the provided training function, the parameters of the network which obtained the best performance on validation set is kept as the final network's parameters, the learning rate should then be big enough to get the smallest loss on validation set.
+  this term is almost depended on the two hyper parameters above. As in the provided training function, the parameters of the network which obtained the best performance on validation set is kept as the final network's parameters, the learning rate should then be big enough to get the smallest loss on validation set.(in other words, the model should begin to become overfit.)
 
 - *size of the training set/validation set:*  
-  Obviously if we take more data as the train set, our model could get better performance, this is because training a NN is a data-based task. But we still need to keep enough data for the validation set to help us tune the hyper parameters(we can not do it directly with the test set because then the model may 'overfit' on the test set, and the results may not be the real performance of the model.) In this work, our strategy is: Firstly using 40000 datas for train set and 10000 datas for validation set -> Tuning the hyper parameters to train a model which could get the best performance on validation set -> Fix the hyper parameters, then using 49000 datas for train set and 1000 datas for validation set to retrain the model -> test the model obtained on the test set. 
+  obviously if we take more data as the train set, our model could get better performance, this is because training a NN is basically a data-based task. But we still need to keep enough data for the validation set to help us tune the hyper parameters(we can not do it directly with the test set because then the model may 'overfit' on the test set, and the results obtained may not be the real performance of the model.) In this work, our strategy is: Firstly using 40000 datas for train set and 10000 datas for validation set -> Tuning the hyper parameters to train a model which could get the best performance on validation set -> Fix the hyper parameters, then using 49000 datas for train set and 1000 datas for validation set to retrain the model -> test the model obtained on the test set. 
 
 ### 2. What is happening when the training and test losses start diverging?
-- When the training loss diverging: learning rate too big, the network can not converge.
+- When the training loss diverging: learning rate too big, the network can not even converge.
 - When test(or validation) loss diverging: overfitting.
 
 Then we have to tune the hyper parameters to try to avoid these problems.
@@ -120,7 +120,7 @@ The result is much better compared to the starting CNN
 
 ![loss](loss.png)
 
-We see that the more the epochs increases, the more the curves try to cross each other until the validation curve exceeds the training curve. It is probably around this moment that the overlearning appears.
+We can see that the more the epochs increases, the more the curves try to cross each other until the validation curve exceeds the training curve and then start diverging. It is probably around this moment that the overfitting appears.
 
 
 
@@ -128,10 +128,10 @@ We see that the more the epochs increases, the more the curves try to cross each
 
 ![Confusion](confusion.png)
 
-We can see that the biggest problem remains the photos of cats which are predicted like photos of dogs and vice versa.
+We can see from the condusion matrix that the biggest problem of our model remains the photos of cats which are predicted like photos of dogs and vice versa.
 
 ### 3.2 Potential improvements
 
-- Fix the overfitting problem
+- Still try to fix the overfitting problem.
 - Play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
 - When we detect an image of cats or dogs, these images are redirected to a more suitable CNN algorithm. This second algo will have as input only photos of dogs and cats, so it will have to differentiate between the two species.
