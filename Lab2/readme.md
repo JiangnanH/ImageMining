@@ -72,7 +72,7 @@ Then we have to tune the hyper parameters to try to avoid these problems.
 
 - *Number of convolutional layers:* 6
 
-- *Kernel size for all CNN layers:* 3x3
+- *Kernel size for all convolutional layers:* 3x3
 
 - *Number of feature maps:* from 32 -> 64 -> 128 to 256
 
@@ -138,5 +138,4 @@ We can see from the condusion matrix that the biggest problem of our model remai
 
 ### 4. Conclusion
 
-Hyperparameters are parameters that we have to set by ourselves and in this project, we understood the importance of this choice and the way of this choice.
-We have gone from 63% to more than 83% accuracy rate through our experimentations and adjustments of these hypermeters. But our project still has some areas for improvement that we have described above.
+By doing this lab work, we understood the importance of choosing the hyperparameters as well as choosing the structure of a neural network on training a CNN. With the new CNN model constructed by ourselves, we have gone from 63% to more than 82% accuracy rate on the testset through our experimentations and adjustments of hypeparameters. But our model still has some potential improvements that we have described above, which requires more experimentations and deeper understanding on the domain of image mining as well as deep learning.
