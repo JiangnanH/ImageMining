@@ -56,41 +56,41 @@ Then we have to tune the hyper parameters to try to avoid these problems.
 
 [CNN + relu + CNN + relu + Maxpooling]x3 + FC + relu + dropout + FC + relu + FC (see more details in our notebook)
 
-- Number of convolutional layers: 6
+- *Number of convolutional layers:* 6
 
-- Kernel size for all CNN layers: 3x3
+- *Kernel size for all CNN layers:* 3x3
 
-- Number of feature maps: from 32 -> 64 -> 128 to 256
+- *Number of feature maps:* from 32 -> 64 -> 128 to 256
 
-- Number of Maxpooling layers: 6
+- *Number of Maxpooling layers:* 6
 
-- Number of Fully connected layers: 3
+- *Number of Fully connected layers:* 3
 
-- Number of Fully connected layers: from 256x4x4 -> 256 -> 64 to 10
+- *Number of Fully connected layers:* from 256x4x4 -> 256 -> 64 to 10
 
-- Number of Dropout layers: 1
+- *Number of Dropout layers:* 1
 
 **Hyper parameters:**
 
-- Learning rate: 0.01
+- *Learning rate:* 0.01
 
-- batch size: 64
+- *batch size:* 64
 
-- Number of epochs: 20
+- *Number of epochs:* 20
 
-- size of the training set: 49000
+- *size of the training set:* 49000
 
-- size of the validation set: 1000
+- *size of the validation set:* 1000
 
 **Other configurations:**
 
-- Optimizer: SGD with momentum = 0.9, lr = learning rate
+- *Optimizer:* SGD with momentum = 0.9, lr = learning rate
 
-- Apply data augmentation for train and validation set by using: transforms.RandomHorizontalFlip(), transforms.RandomGrayscale();
+- *Apply data augmentation for train and validation set by using:* transforms.RandomHorizontalFlip(), transforms.RandomGrayscale();
 
 **Result: (best performance)**
 
-Accuracies:
+*Accuracies:*
 
 - Accuracy of the network on the 49000 train images: 95.12 %
 
