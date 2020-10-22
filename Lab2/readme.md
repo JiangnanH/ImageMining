@@ -38,21 +38,21 @@ Then we have to find the right learning rate so that these problems do not arise
 
 **Network structure:**
 
-$[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more details in our notebook)
+[CNN + relu + CNN + relu + Maxpooling]x3 + FC + relu + dropout + FC + relu + FC (see more details in our notebook)
 
-- Number of convolutional layers: {6}
+- Number of convolutional layers: 6
 
-- Kernel size for all CNN layers: {3x3}
+- Kernel size for all CNN layers: 3x3
 
-- Number of feature maps: {32, 64, 128, 256}
+- Number of feature maps: from 32 -> 64 -> 128 to 256
 
-- Number of Maxpooling layers: {6}
+- Number of Maxpooling layers: 6
 
-- Number of Fully connected layers: {3}
+- Number of Fully connected layers: 3
 
-- Number of Fully connected layers: $from \ 256*4*4 \ to \ 256 \ to \ 64 \ to \ 10$ {}
+- Number of Fully connected layers: from 256x4x4 -> 256 -> 64 to 10
 
-- Number of Dropout layers: {1}
+- Number of Dropout layers: 1
 
 **Hyper parameters:**
 
