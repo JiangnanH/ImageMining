@@ -135,3 +135,8 @@ We can see from the condusion matrix that the biggest problem of our model remai
 - Still try to fix the overfitting problem.
 - Play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
 - When we detect an image of cats or dogs, these images are redirected to a more suitable CNN algorithm. This second algo will have as input only photos of dogs and cats, so it will have to differentiate between the two species.
+
+### 4. Conclusion
+
+Hyperparameters are parameters that we have to set by ourselves and in this project, we understood the importance of this choice and the way of this choice.
+We have gone from 63% to more than 83% accuracy rate through our experimentations and adjustments of these hypermeters. But our project still has some areas for improvement that we have described above.
