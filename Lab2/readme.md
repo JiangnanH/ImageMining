@@ -106,6 +106,6 @@ We can see that the biggest problem remains the photos of cats which are predict
 
 ### 3.2 Potential improvements
 
-- fix the overfitting problem
-- play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
+- Fix the overfitting problem
+- Play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
 - When we detect an image of cats or dogs, these images are redirected to a more suitable CNN algorithm. This second algo will have as input only photos of dogs and cats, so it will have to differentiate between the two species.
