@@ -29,8 +29,6 @@ We test CNN based model with different structures.
 - number of epochs: this term is almost depended on the two hyper parameters above. As in the provided training function, the parameters of the network which obtained the best performance on validation set is kept as the final network's parameters, the learning rate should then be big enough to get the smallest loss on validation set.
 - size of the training set/validation set
 
-The report should contain inside a link to your notebook saved into your github account:  In the colab notebook do:File→Save a copy in Github, and add that link to your repo in your report.
-
 ### 2. What is happening when the training and test losses start diverging?
 - When the training loss diverging: learning rate too big, the network can not converge.
 - When test(or validation) loss diverging: overfitting.
