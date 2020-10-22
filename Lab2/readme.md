@@ -40,19 +40,19 @@ Then we have to find the right learning rate so that these problems do not arise
 
 $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more details in our notebook)
 
-- Number of convolutional layers: $6$
+- Number of convolutional layers: {6}
 
-- Kernel size for all CNN layers: $3\times3$
+- Kernel size for all CNN layers: {3x3}
 
-- Number of feature maps: $from \ 32 \ to \ 64 \ to \ 128 \ to \ 256$
+- Number of feature maps: {32, 64, 128, 256}
 
-- Number of Maxpooling layers: $6$
+- Number of Maxpooling layers: {6}
 
-- Number of Fully connected layers: $3$
+- Number of Fully connected layers: {3}
 
-- Number of Fully connected layers: $from \ 256*4*4 \ to \ 256 \ to \ 64 \ to \ 10$
+- Number of Fully connected layers: $from \ 256*4*4 \ to \ 256 \ to \ 64 \ to \ 10$ {}
 
-- Number of Dropout layers: $1$
+- Number of Dropout layers: {1}
 
 **Hyper parameters:**
 
@@ -74,13 +74,15 @@ $[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more det
 
 **Result: (best performance)**
 
-- Accuracies:
+Accuracies:
 
-  Accuracy of the network on the 49000 train images: 95.12 %
+- Accuracy of the network on the 49000 train images: 95.12 %
 
-  Accuracy of the network on the 1000 validation images: 83.30 %
+- Accuracy of the network on the 1000 validation images: 83.30 %
 
-  Accuracy of the network on the 10000 test images: 82.94 %
+- Accuracy of the network on the 10000 test images: 82.94 %
+  
+The result is much better compared to the starting CNN 
 
 ### 3.1 Interpretation on the losses plot
 
