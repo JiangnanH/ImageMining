@@ -11,16 +11,18 @@ Here is [*our notebook*](https://github.com/JiangnanH/ImageMining/blob/master/La
 ### 1. Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
 
 
-
 **Neural networks:**
 
-We test CNN based model with different structures.
+We've tested CNN based model with different structures.
 
-- kernel size;
-- number of feature maps;
-- number of convolutional layers;
-- size of fully connected layers;
-- use dropout or not(also number of dropout layers);
+- kernel size: 
+  we've tested kernel size as 3x3, 5x5, 7x7 for each convolution layer, and 3x3 remains the best kernel size.
+- number of feature maps: 32 -> 64 -> 128 -> 256
+- number of convolutional layers: 
+  we've testes 3, 6, 9, 12 convolution layers, and 6 convolution layers could obtain the best result.
+- size of fully connected layers: 256 -> 64 -> 10
+- use dropout or not(also number of dropout layers): 
+  add dropout layer could reduce the risk of overfitting and make the model more robust, but too much dropout may cause the model converge much slower. Finally we added 1 dropout layer in our model between 2 fully connected layers.
 
 **Hyper parameters:**
 
