@@ -11,89 +11,131 @@ Here is [*our notebook*](https://github.com/JiangnanH/ImageMining/blob/master/La
 ### 1. Explain the neural networks and hyper parameters configurations we tested and the resulting performances and trade-offs found.
 
 
-
 **Neural networks:**
 
-We test CNN based model with different structures.
+We've tested CNN based model with different structures.
 
-- kernel size;
-- number of feature maps;
-- number of convolutional layers;
-- size of fully connected layers;
-- use dropout or not(also number of dropout layers);
+- *kernel size:*   
+  we've tested kernel size as 3x3, 5x5, 7x7 for each convolution layer, and 3x3 remains the best kernel size.
+  
+- *number of feature maps:*  
+  we've tested several kinds of feature maps, which contains:  
+  32 -> 48 -> 64 -> 128  
+  32 -> 64 -> 128 -> 256  
+  32 -> 64 -> 128 -> 256 -> 512  
+  etc.  
+  
+  The best performance is given by:  
+  32 -> 64 -> 128 -> 256
+  
+- *number of convolutional layers:*  
+  we've tested 3, 6, 9, 12 convolution layers, and with 6 convolution layers the model could obtain the best performance.
+
+- *size of fully connected layers:*  
+  we've tested:  
+  256 -> 10  
+  64 -> 10  
+  256 -> 64 -> 10  
+  etc.
+  
+  The best performance is given by:  
+  256 -> 64 -> 10
+
+- *use dropout or not(also number of dropout layers):*  
+  add dropout layer could reduce the risk of overfitting on the train set and make the model more robust, but too much dropout may cause the model converge much slower. After several experiments, finally we added 1 dropout layer in our model between 2 fully connected layers.
 
 **Hyper parameters:**
 
-- batch size: we test batch_size = 32, 64, 128, 256, 512. With small batch size(batch_size = 32), the algorithm converges quicker but the result on the test set is not very good. With bigger batch size, the algorithm converges slower, and the best result is obtained with batch_size = 64.
-- learning rate: we test learning rate = 0.0001, 0.001, 0.01. Small lr -> converge slowly, easily become overfitting; Big lr-> can not even converge, underfitting. The best lr tested is 0.001.
-- number of epochs: this term is almost depended on the two hyper parameters above. As in the provided training function, the parameters of the network which obtained the best performance on validation set is kept as the final network's parameters, the learning rate should then be big enough to get the smallest loss on validation set.
-- size of the training set/validation set
+- *batch size:*  
+  we've tested batch_size = 32, 64, 128, 256, 512. With small batch size (batch_size = 32), the model converges quicker but the performance on the test set is not very good. With bigger batch size, the algorithm converges slower, and the best performance is obtained with batch_size = 64.
 
-The report should contain inside a link to your notebook saved into your github account:  In the colab notebook do:File→Save a copy in Github, and add that link to your repo in your report.
+- *learning rate:*  
+  we've tested learning rate(lr) = 0.0001, 0.001, 0.01, 0.1. lr too small -> converge slowly, easily become overfitting on train set; lr to big-> can not even converge, underfitting. The best lr tested is 0.001 for optimiser Adam, and 0.01 for SGD with momentum.
+
+- *number of epochs:*  
+  this term is almost depended on the two hyper parameters above. As in the provided training function, the parameters of the network which obtained the best performance on validation set is kept as the final network's parameters, the learning rate should then be big enough to get the smallest loss on validation set.(in other words, the model should begin to become overfit.) For our final model, 20 is enough as number of epochs.
+
+- *size of the training set/validation set:*  
+  obviously if we take more data as the train set, our model could get better performance, this is because training a NN is basically a data-based task. But we still need to keep enough data for the validation set to help us tune the hyper parameters(we can not do it directly with the test set because then the model may 'overfit' on the test set, and the results obtained may not be the real performance of the model.) In this work, our strategy is: Firstly using 40000 datas for train set and 10000 datas for validation set -> Tuning the hyper parameters to train a model which could get the best performance on validation set -> Fix the hyper parameters, then using 49000 datas for train set and 1000 datas for validation set to retrain the model -> test the model obtained on the test set. 
 
 ### 2. What is happening when the training and test losses start diverging?
-- When the training loss diverging: learning rate too big, the network can not converge.
+- When the training loss diverging: learning rate too big, the network can not even converge.
 - When test(or validation) loss diverging: overfitting.
+
+Then we have to tune the hyper parameters to try to avoid these problems.
 
 ### 3. Top performing configurations:
 
-**Network structure:**
+**Network structure:** (we finally construct our network like a simplified VGG network)
 
-$[CNN+relu+CNN+relu+Maxpooling]\times3+FC+relu+dropout+FC+relu+FC$ (see more details in our notebook)
+[CNN + relu + CNN + relu + Maxpooling]x3 + FC + relu + dropout + FC + relu + FC (see more details in our notebook)
 
-- Number of convolutional layers: $6$
+- *Number of convolutional layers:* 6
 
-- Kernel size for all CNN layers: $3\times3$
+- *Kernel size for all convolutional layers:* 3x3
 
-- Number of feature maps: $from \ 32 \ to \ 64 \ to \ 128 \ to \ 256$
+- *Number of feature maps:* from 32 -> 64 -> 128 to 256
 
-- Number of Maxpooling layers: $6$
+- *Number of Maxpooling layers:* 6
 
-- Number of Fully connected layers: $3$
+- *Number of Fully connected layers:* 3
 
-- Number of Fully connected layers: $from \ 256*4*4 \ to \ 256 \ to \ 64 \ to \ 10$
+- *Number of Fully connected layers:* from 256x4x4 -> 256 -> 64 to 10
 
-- Number of Dropout layers: $1$
+- *Number of Dropout layers:* 1
 
 **Hyper parameters:**
 
-- Learning rate: 0.01
+- *Learning rate:* 0.01
 
-- batch size: 64
+- *batch size:* 64
 
-- Number of epochs: 20
+- *Number of epochs:* 20
 
-- size of the training set: 49000
+- *size of the training set:* 49000
 
-- size of the validation set: 1000
+- *size of the validation set:* 1000
 
 **Other configurations:**
 
-- Optimizer: SGD with momentum = 0.9, lr = learning rate
+- *Optimizer:* SGD with momentum = 0.9, lr = learning rate
 
-- Apply data augmentation for train and validation set by using: transforms.RandomHorizontalFlip(), transforms.RandomGrayscale();
+- *Apply data augmentation for train and validation set by using:* transforms.RandomHorizontalFlip(), transforms.RandomGrayscale();
 
 **Result: (best performance)**
 
-- Accuracies:
+*Accuracies:*
 
-  Accuracy of the network on the 49000 train images: 95.12 %
+- Accuracy of the network on the 49000 train images: 95.12 %
 
-  Accuracy of the network on the 1000 validation images: 83.30 %
+- Accuracy of the network on the 1000 validation images: 83.30 %
 
-  Accuracy of the network on the 10000 test images: 82.94 %
+- Accuracy of the network on the 10000 test images: 82.94 %
+  
+The result is much better compared to the starting CNN 
 
+### 3.1 Interpretation on the losses plot and confusion matrix
 
 - Plot of losses:
 
 ![loss](loss.png)
 
+We can see that the more the epochs increases, the more the curves try to cross each other until the validation curve exceeds the training curve and then start diverging. It is probably around this moment that the overfitting appears.
+
+
+
 - Normalized confusion matrix:
 
 ![Confusion](confusion.png)
 
-### 3.1 Interpretation on the losses plot
+We can see from the condusion matrix that the biggest problem of our model remains the photos of cats which are predicted like photos of dogs and vice versa.
 
 ### 3.2 Potential improvements
 
-- fix the overfitting problem
+- Still try to fix the overfitting problem.
+- Play on other parameters of the CNN : stride, padding, atrous (we did not focus on these parameters because the size of our image is relatively small).
+- When we detect an image of cats or dogs, these images are redirected to a more suitable CNN algorithm. This second algo will have as input only photos of dogs and cats, so it will have to differentiate between the two species.
+
+### 4. Conclusion
+
+By doing this lab work, we understood the importance of choosing the hyperparameters as well as choosing the structure of a neural network on training a CNN. With the new CNN model constructed by ourselves, we have gone from 63% to more than 82% accuracy rate on the testset through our experimentations and adjustments of hypeparameters. But our model still has some potential improvements that we have described above, which requires more experimentations and deeper understanding on the domain of image mining as well as deep learning.
